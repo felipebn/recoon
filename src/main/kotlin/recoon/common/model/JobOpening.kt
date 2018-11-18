@@ -46,5 +46,6 @@ interface JobOpeningRepository : CrudRepository<JobOpening, Long>{
 }
 
 interface JobOpeningCandidateRepository : CrudRepository<JobOpeningCandidate, Long>{
+	fun <T> findJobOpeningCandidateById(id:Long, projection : Class<T>) : T
 	fun <T> findJobOpeningCandidateByJobOpeningIdAndCurrentWorkflowStageId(jobOpeningId:Long, workflowStageId:Long, projection:Class<T>) : List<T>
 }

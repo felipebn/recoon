@@ -12,7 +12,8 @@ import javax.transaction.Transactional
 
 @Component
 class JobOpeningQuery(
-		val jobOpeningRepository: JobOpeningRepository
+		val jobOpeningRepository: JobOpeningRepository,
+		val jobOpeningCandidateRepository: JobOpeningCandidateRepository
 ): GraphQLQueryResolver{
 	
 	fun jobOpenings(): List<JobOpeningProjection>{
@@ -21,6 +22,10 @@ class JobOpeningQuery(
     
     fun jobOpening(id: Long): JobOpeningProjection{
 		return jobOpeningRepository.findJobOpeningById(id, JobOpeningProjection::class.java)
+	}
+	
+	fun jobOpeningCandidate(id:Long): CandidateProjection{
+		return jobOpeningCandidateRepository.findJobOpeningCandidateById(id, CandidateProjection::class.java)
 	}
 }
 

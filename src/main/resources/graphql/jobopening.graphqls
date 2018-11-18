@@ -27,4 +27,6 @@ type Query {
     jobOpenings: [JobOpening]!
     
     jobOpening(id: ID): JobOpening!
+    
+    jobOpeningCandidate(id: ID): JobOpeningCandidate!
 }
