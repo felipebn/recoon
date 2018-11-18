@@ -103,9 +103,10 @@ class DemoDataBootstrap{
 						val newCandidate = candidateRepository.save(createFakeCandidate())
 								opening.candidates.add(JobOpeningCandidate(
 										candidate=newCandidate,
-										currentWorkflowStage=opening.workflow.stages.first()
-										))
-										log.info("New candidate '{}' for '{}'", newCandidate, opening.job.title)
+										currentWorkflowStage=opening.workflow.stages.first(),
+										jobOpening=opening
+								))
+								log.info("New candidate '{}' for '{}'", newCandidate, opening.job.title)
 					}
 					jobOpeningRepository.save(opening)
 			}

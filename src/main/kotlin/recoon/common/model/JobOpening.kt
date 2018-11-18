@@ -8,6 +8,7 @@ import javax.persistence.Id
 import javax.persistence.OneToMany
 import javax.persistence.OneToOne
 import javax.persistence.CascadeType
+import javax.persistence.ManyToOne
 
 @Entity
 data class JobOpeningCandidate(
@@ -17,7 +18,9 @@ data class JobOpeningCandidate(
 		@OneToOne
 		val candidate:Candidate,
 		@OneToOne
-		val currentWorkflowStage:WorkflowStage
+		val currentWorkflowStage:WorkflowStage,
+		@ManyToOne
+		val jobOpening:JobOpening
 )
 
 @Entity
@@ -42,3 +45,6 @@ interface JobOpeningRepository : CrudRepository<JobOpening, Long>{
 	fun <T> findByIdAndCandidates_CurrentWorkflowStage_Id(id:Long, workflowStageId:Long, projection:Class<T>) : T
 }
 
+interface JobOpeningCandidateRepository : CrudRepository<JobOpeningCandidate, Long>{
+	fun <T> findJobOpeningCandidateByJobOpeningIdAndCurrentWorkflowStageId(jobOpeningId:Long, workflowStageId:Long, projection:Class<T>) : List<T>
+}

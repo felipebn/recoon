@@ -27,11 +27,11 @@ interface JobOpeningStageProjection{
 	fun getOrder(): Int
 }
 
-interface JobOpeningStageCandidatesProjection{
-	fun getCandidates() : List<CandidateProjection> 
-}
-
 interface CandidateProjection{
-		fun getId():Long
-		fun getName(): String
+	@Value("#{target.id}")
+	fun getId():Long
+	@Value("#{target.candidate.id}")
+	fun getCandidateId():String
+	@Value("#{target.candidate.name}")
+	fun getName():String
 }

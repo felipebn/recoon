@@ -5,6 +5,7 @@ import com.coxautodev.graphql.tools.GraphQLResolver
 import graphql.schema.DataFetchingEnvironment
 import org.springframework.stereotype.Component
 import recoon.bootstrap.CustomGraphQLContext
+import recoon.common.model.JobOpeningCandidateRepository
 import recoon.common.model.JobOpeningRepository
 import recoon.common.model.WorkflowRepository
 import javax.transaction.Transactional
@@ -50,12 +51,12 @@ class JobOpeningWorkflowProjectionResolver(
 
 @Component
 class JobOpeningStageProjectionResolver(
-		val jobOpeningRepository: JobOpeningRepository
+		val jobOpeningCandidateRepository: JobOpeningCandidateRepository
 ): GraphQLResolver<JobOpeningStageProjection>{
 
 	fun getCandidates(stage:JobOpeningStageProjection, fetchEnv:DataFetchingEnvironment) : List<CandidateProjection>{
 		val jopOpeningId : Long = fetchEnv.getCurrentJobOpeningId()
-		return jobOpeningRepository.findByIdAndCandidates_CurrentWorkflowStage_Id(jopOpeningId, stage.getId(), JobOpeningStageCandidatesProjection::class.java).getCandidates()
+		return jobOpeningCandidateRepository.findJobOpeningCandidateByJobOpeningIdAndCurrentWorkflowStageId(jopOpeningId, stage.getId(), CandidateProjection::class.java)
 	} 
 		
 }
