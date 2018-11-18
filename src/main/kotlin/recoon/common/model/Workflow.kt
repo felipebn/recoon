@@ -41,4 +41,6 @@ data class Workflow(
 		val stages:SortedSet<WorkflowStage>
 );
 
-interface WorkflowRepository:CrudRepository<Workflow, Long>;
+interface WorkflowRepository:CrudRepository<Workflow, Long>{
+	fun <T> findWorkflowById(id:Long, projection:Class<T>) : T
+}

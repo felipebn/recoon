@@ -34,5 +34,11 @@ data class JobOpening(
 		val candidates:MutableList<JobOpeningCandidate> = mutableListOf()
 );
 
-interface JobOpeningRepository : CrudRepository<JobOpening, Long>;
+
+interface JobOpeningRepository : CrudRepository<JobOpening, Long>{
+	fun <T> findJobOpeningsBy(projection:Class<T>) : List<T>
+	fun <T> findJobOpeningById(id:Long, projection:Class<T>) : T
+	fun <T> findDetailsById(id:Long, projection:Class<T>) : List<T>
+	fun <T> findByIdAndCandidates_CurrentWorkflowStage_Id(id:Long, workflowStageId:Long, projection:Class<T>) : T
+}
 

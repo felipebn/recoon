@@ -1,0 +1,30 @@
+type JobOpening {
+    id: ID!
+    name: String!
+    workflow: JobOpeningWorkflow
+}
+
+type JobOpeningWorkflow{
+	id: ID!
+	name: String!
+	stages: [JobOpeningStage]!
+}
+
+type JobOpeningStage {
+    id: ID!
+    name: String!
+    order: Long!
+    candidates: [JobOpeningCandidate]!
+}
+
+type JobOpeningCandidate {
+	id: ID!
+	name: String!
+}
+
+
+type Query {
+    jobOpenings: [JobOpening]!
+    
+    jobOpening(id: ID): JobOpening!
+}
