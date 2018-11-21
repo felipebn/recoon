@@ -1,13 +1,20 @@
-package recoon.jobopening
+package recoon.jobopeningan
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver
 import com.coxautodev.graphql.tools.GraphQLResolver
 import graphql.schema.DataFetchingEnvironment
+import org.apache.commons.lang3.RandomUtils
 import org.springframework.stereotype.Component
 import recoon.bootstrap.CustomGraphQLContext
 import recoon.common.model.JobOpeningCandidateRepository
 import recoon.common.model.JobOpeningRepository
 import recoon.common.model.WorkflowRepository
+import recoon.jobopening.CandidateProjection
+import recoon.jobopening.JobOpeningProjection
+import recoon.jobopening.JobOpeningStageProjection
+import recoon.jobopening.JobOpeningWorkflowProjection
+import recoon.jobopening.JobOpeningWorkflowStageProjection
+import java.util.Random
 import javax.transaction.Transactional
 
 @Component
@@ -39,7 +46,26 @@ class JobOpeningProjectionResolver(
 		fetchEnv.setCurrentJobOpeningId(jobOpeningData.getId())
 		return jobOpeningRepository.findJobOpeningById(jobOpeningData.getId(), JobOpeningWorkflowProjection::class.java)
 	} 
-		
+
+	fun getApplicantCount(jobOpening:JobOpeningProjection) : Long{
+		//TODO implement as query
+		return RandomUtils.nextLong(0, 100)
+	}
+	
+	fun getResponsible(jobOpening:JobOpeningProjection) : String{
+		//TODO implement as query
+		val names = listOf("Leela Welch",
+						"Jameel Glover",
+						"Boyd Corrigan",
+						"Rodney Meyers",
+						"Bradleigh Hodge",
+						"Kingston Acosta",
+						"Zeshan Regan",
+						"Kasey Samuels",
+						"Chloe Atkinson",
+						"Ava-Grace Nava")
+		return names.shuffled(Random(jobOpening.getId())).first()
+	}	
 }
 
 @Component

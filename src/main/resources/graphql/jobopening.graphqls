@@ -1,6 +1,8 @@
 type JobOpening {
     id: ID!
     name: String!
+    applicantCount: Long!
+    responsible: String!
     workflow: JobOpeningWorkflow
 }
 

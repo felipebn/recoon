@@ -1,0 +1,46 @@
+@import "./bulma.min";
+
+html{
+  background-color: #ffffff;
+}
+
+body{
+  padding: 10px;
+  color: rgb(31, 45, 59);
+}
+
+body, h1, {
+  font-weight: 100;
+}
+
+.title{
+  color: rgb(31, 45, 59);
+}
+
+.box{
+  border-radius: 0px;
+}
+
+.recoon{
+  &-card{
+    cursor: pointer;
+    border-top: solid 5px #57a0D3;
+    padding-top: 10px;
+    
+    h1{
+      font-size: 1.20em;
+    }
+    
+    &.cancelled{
+      opacity: 0.5;
+    }
+  }
+  &-card-tags{
+    margin-top: 10px;
+  }
+  &-stage-column{
+    .stage-name{
+      padding: 5px;
+    }
+  }
+}
