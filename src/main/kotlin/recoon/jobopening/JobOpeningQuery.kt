@@ -1,4 +1,4 @@
-package recoon.jobopeningan
+package recoon.jobopening
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver
 import com.coxautodev.graphql.tools.GraphQLResolver
