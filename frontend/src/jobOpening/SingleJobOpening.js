@@ -7,10 +7,15 @@ class SingleJobOpening extends Component {
     var opening = this.props.opening;
     return (
       <div className="container">
-        <h1 className="title">{opening.name}</h1>
-        <h2 className="subtitle">{opening.workflow.name}</h2>
-
-        <div className="columns is-multiline is-mobile">
+        <div>
+          <a class="button is-link is-outlined is-pulled-right">
+            <span>Add Candidate</span>
+          </a>
+          <h1 className="title">{opening.name}</h1>
+          <h4 className="subtitle">{opening.workflow.name}</h4>
+        </div>
+        <br/>
+        <div className="columns">
           {opening.workflow.stages.map(workflowStage => <WorkflowStageColumn stage={workflowStage}/>)}
         </div>
       </div>
