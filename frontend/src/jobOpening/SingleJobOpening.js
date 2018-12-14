@@ -59,8 +59,8 @@ class WorkflowStageColumn extends Component {
 }
 
 const GET_JOBOPENING = gql`
-  {
-    jobOpening(id:1){
+  query singleJobOpening($joOpeningId: ID!){
+    jobOpening(id: $joOpeningId){
       id,
       name,
       applicantCount,
@@ -78,8 +78,8 @@ const GET_JOBOPENING = gql`
   }
 `;
 
-const SingleJobOpeningQuery = () => (
-  <Query query={GET_JOBOPENING}>
+const SingleJobOpeningQuery = (routeProps) => (
+  <Query query={GET_JOBOPENING} variables={{joOpeningId: routeProps.match.params.id}}>
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return `Error! ${error.message}`;
