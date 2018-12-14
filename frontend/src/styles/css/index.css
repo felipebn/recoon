@@ -9976,6 +9976,10 @@ body, h1 {
   border-radius: 0px;
 }
 
+.no-style {
+  color: inherit;
+}
+
 .recoon-card {
   cursor: pointer;
   border-top: solid 5px #57a0D3;
