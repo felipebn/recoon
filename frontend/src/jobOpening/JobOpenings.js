@@ -6,7 +6,7 @@ import Link from 'react-router-dom/Link';
 class JobOpenings extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container is-fluid">
         <h1 className="title">Job Openings</h1>
 
         <div className="columns is-multiline is-mobile">

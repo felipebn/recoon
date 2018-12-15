@@ -9962,6 +9962,7 @@ html {
 body {
   padding: 10px;
   color: #1f2d3b;
+  font-size: 1.5vw;
 }
 
 body, h1 {
@@ -9970,6 +9971,11 @@ body, h1 {
 
 .title {
   color: #1f2d3b;
+  font-size: 2vw;
+}
+
+.subtitle {
+  font-size: 0.75vw;
 }
 
 .box {
@@ -9998,6 +10004,7 @@ body, h1 {
   background-color: #f2f2f2;
   border: none;
   padding: 0px;
+  margin: 0px 0.75rem;
 }
 .recoon-stage-column .stage-top-border {
   height: 5px;
@@ -10013,6 +10020,10 @@ body, h1 {
   padding: 0.75rem;
   padding-top: 0.5rem;
 }
+.recoon-stage-column .stage-contents h2 {
+  font-weight: 100;
+  font-size: 1.5vw;
+}
 .recoon-stage-column .stage-name {
   padding: 5px;
 }
@@ -10023,7 +10034,11 @@ body, h1 {
   margin-bottom: 25px;
 }
 .recoon-stage-column .stage-card .card-content {
-  padding: 10px;
+  padding: 5px;
+}
+.recoon-stage-column .stage-card .title {
+  font-size: 1vw;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=index.css.map */

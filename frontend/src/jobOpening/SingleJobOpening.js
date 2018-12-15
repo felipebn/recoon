@@ -6,7 +6,7 @@ class SingleJobOpening extends Component {
   render() {
     var opening = this.props.opening;
     return (
-      <div className="container">
+      <div className="container is-fluid">
         <div>
           <a class="button is-link is-outlined is-pulled-right">
             <span>Add Candidate</span>
